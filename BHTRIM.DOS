@@ -1,0 +1,12 @@
+all : bhtrim.exe
+
+.c.obj:
+   cl /Zi /W3 /c /Od /AL $*.c
+
+bhtrim.obj : bhtrim.c 
+
+csv.obj : csv.c
+
+bhtrim.exe : bhtrim.obj csv.obj
+   link /Codeview/li/map/stack:5000 bhtrim csv,,,llibcer/NOD/NOE;
+
